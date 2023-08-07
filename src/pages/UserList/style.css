@@ -1,0 +1,74 @@
+.usersMain {
+    grid-column-start: 2;
+    width: auto;
+}
+
+.userList {
+
+    margin-left: 3%;
+    margin-top: 5%;
+}
+
+.userList h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    font-size: 2rem;
+    padding: 0 0 2rem;
+    padding-left: 9rem;
+}
+
+.Back {
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.Back p {
+    display: flex;
+    align-items: center;
+    padding: 0 8rem;
+}
+
+.users_Table {
+    margin: 0 auto;
+    width: 80%;
+    background-color: rgb(255, 252, 246);
+    border-collapse: collapse;
+}
+
+.users_Table td,
+th {
+    padding: 0.6rem;
+    text-align: center;
+    border: 1px solid rgb(37, 37, 41);
+    font-size: 1.1rem;
+}
+
+.users_Table tr:hover {
+    background-color: rgb(206, 203, 203);
+}
+
+.users_Table td a {
+    text-decoration: none;
+    color: rgb(47, 133, 182);
+}
+
+.users_Table th {
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(206, 203, 203);
+}
+
+.delete {
+    font-size: 1.5rem;
+    color: red;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

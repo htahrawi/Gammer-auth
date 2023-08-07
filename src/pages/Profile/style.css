@@ -1,0 +1,54 @@
+.Back{
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+.Back p{
+    display: flex;
+    align-items: center;
+    padding: 0 8rem;
+  }
+  .account {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    gap: 1rem;
+    height: 65vh;
+    width: 60%;
+  }
+  .account img {
+    height: 8rem;
+    width: 8rem;
+  }
+  .account h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .profile_info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    gap: 10px;
+    padding: 5% ;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    background-color: #999;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+  }
+  .user_info{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgb(127, 223, 255);
+    padding-top: 0;
+  }

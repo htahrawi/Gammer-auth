@@ -1,0 +1,44 @@
+.profile {
+    grid-row-start: 1;
+    display:flex;
+    justify-content: flex-end;
+    top: 0;
+    margin-top: 14px;
+    margin-left: auto;
+    width: 50px;
+    padding-right: 16px;
+}
+.profile>div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 10%;
+    cursor: pointer;
+
+}
+.profile img{
+    height: 50px;
+    width: 50px;
+}
+.info{
+    flex-direction: column;
+    padding-right: 20px;
+    text-align: end;
+    font-size: 5px ; 
+}
+.icon{
+    font-size: 2.3rem;
+    margin-left: 1rem;
+}
+.users__list {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-decoration: none;
+    align-items: center;
+    font-size: 2rem;
+    color: black;
+}
+.users__list p {
+    font-size: 1rem;
+}

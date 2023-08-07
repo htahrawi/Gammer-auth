@@ -1,0 +1,29 @@
+.NewGames {
+    grid-row-start: 2;
+    width: 100%;
+  }
+  .game__Container {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    width: calc(100vw - 8rem);
+  }
+  .game__Container::-webkit-scrollbar {
+    display: none;
+  }
+  .game__Container img {
+    height: 15rem;
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+  }
+  .game__Container img:last-of-type {
+    margin-right: 0;
+  }
+  .last_game {
+    margin-right: 0;
+  }
