@@ -46,6 +46,7 @@ const reduce = (state, action) => {
 export const useAuth = () => {
     const [state, dispatch] = useReducer(reduce, initialState);
     const token = state.token || localStorage.getItem('token')
+    const role = state.role || localStorage.getItem('role')
 
     const config = {
         headers: {
@@ -88,6 +89,7 @@ export const useAuth = () => {
         login,
         signup,
         logout,
-        getProfileData
+        getProfileData,
+        role
     }
 }

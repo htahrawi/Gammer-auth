@@ -14,6 +14,7 @@ import "./style.css";
 import axios from "axios";
 import { AUTH_API_PATHS } from "../../constants/auth";
 import { AUTH_API } from "../../config/api";
+import { useThemeContext } from "../../contexts/ThemeContext";
 
 const UserList = () => {
 
@@ -23,7 +24,7 @@ const UserList = () => {
   })
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPage, setLastPage] = useState(currentPage);
-
+  const {theme} = useThemeContext()
   useEffect(() => {
     const token = localStorage?.getItem('token');
     const getUsers = async () => {
@@ -49,7 +50,7 @@ const UserList = () => {
     }
   };
   return (
-    <div className="home">
+    <div className={`home_${theme}`}>
       <SideBar />
       <main className="usersMain">
         <User />

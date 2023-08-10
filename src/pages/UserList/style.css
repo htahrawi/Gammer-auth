@@ -1,3 +1,26 @@
+.home_light{
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    grid-template-areas: sidbar main;
+    height: auto;
+    width: auto;
+    background-color: #f8f8f8;
+    color: black;
+}
+.home_dark{
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    grid-template-areas: sidbar main;
+    height: auto;
+    width: auto;
+    background-color: #222222;
+    color: white;
+}
+.home_dark .users_Table td,
+th{
+    color: black;
+}
+
 .usersMain {
     grid-column-start: 2;
     width: auto;

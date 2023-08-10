@@ -5,8 +5,8 @@ import { PATHS } from '../../../router/paths';
 import { useAuthContext } from '../../../contexts/AuthContext';
 
 const GuestGuards = ({ children }) => {
-  // const { role } = useAuthContext();
-  const role = "ADMIN";
+  const { role } = useAuthContext();
+  // const role = "ADMIN";
 
   if(role === ROLES.ADMIN)
     return <Navigate to={PATHS.ADMIN} replace={true} />

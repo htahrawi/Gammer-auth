@@ -8,6 +8,8 @@ import React from 'react'
 import './style.css'
 import { useThemeContext } from '../../contexts/ThemeContext'
 import { THEMES } from '../../constants/theme';
+import { Link } from 'react-router-dom';
+import { PATHS } from '../../router/paths';
 
 const SideBar = () => {
     const { theme, toggleTheme } = useThemeContext();
@@ -19,7 +21,9 @@ const SideBar = () => {
                 </div>
                 <div className='middle_icons'>
                     <img src={`/images/${theme}Icons/fav.png`} alt='control' />
+                    <Link to={`${PATHS.USERS}`}>
                     <img src={`/images/${theme}Icons/setting.png`} alt='control' />
+                    </Link>
                     <img src={`/images/${theme}Icons/puzzle.png`} alt='control' />
                 </div>
                 <div className={`theme_toggle theme_toggle_${theme}`}>

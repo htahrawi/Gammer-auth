@@ -8,13 +8,14 @@ import Profile from "../pages/Profile";
 import SignUp from "../pages/SignUp";
 import UserList from "../pages/UserList";
 import { PATHS } from "./paths";
+import MainLayout from '../components/MainLayout'
 
 // Roles:
 // - guest: can view only(login, signup)
 // - user: can view only(home, profile)
 // - admin: can view only(home, profile, admin)
 
-
+//Admin Router Pages
 const adminPages = [
     {
         path: PATHS.HOME,
@@ -29,54 +30,43 @@ const adminPages = [
                 element: <Profile />
             },
             {
-                path: PATHS.USERS,
+                path: PATHS.ADMIN.USERS,
                 element: <UserList />
             },
         ]
     }
 ]
+
+//user Router Pages
 const userPages = [
     {
         path: PATHS.HOME,
         element: <UserGuard />,
-        children: [
+        children:[
             {
                 index: true,
-                element:
-                    // <MainLayout>
-                    <HomePage />
-                // </MainLayout>
+                element :<HomePage />
+
             },
             {
                 path: PATHS.PROFILE,
-                element:
-                    // <MainLayout>
-                    <Profile />
-                // </MainLayout>
+                element: <Profile />
             },
-            // {
-            //     path: '*',
-            //     element: <Navigate to={`${PATHS.HOME}`} />
-            // }
         ]
+            
     }
 ]
-
+//Guest Router Pages
 const guestPages = [
     {
-        path: PATHS.LOGIN,
-        element: (
-            <Login />
-        )
+        path:PATHS.LOGIN,
+        element:<Login />
     },
     {
-        path: PATHS.SIGNUP,
-        element: (
-            <SignUp />
-        )
+        path:PATHS.SIGNUP,
+        element:<SignUp />
     }
 ]
-
 
 const routes = [
     ...adminPages,
@@ -92,5 +82,64 @@ const routes = [
     },
 ]
 
+export { routes }
 
-export { routes };
+
+// const userPages = [
+//     {
+//         path: PATHS.HOME,
+//         element: <UserGuard />,
+//         children: [
+//             {
+//                 index: true,
+//                 element:
+//                     // <MainLayout>
+//                         <HomePage />
+//                     // </MainLayout>
+//             },
+//             {
+//                 path: PATHS.PROFILE,
+//                 element:
+//                     // <MainLayout>
+//                     <Profile />
+//                 // </MainLayout>
+//             },
+//             // {
+//             //     path: '*',
+//             //     element: <Navigate to={`${PATHS.HOME}`} />
+//             // }
+//         ]
+//     }
+// ]
+
+// const guestPages = [
+//     {
+//         path: PATHS.LOGIN,
+//         element: (
+//             <Login />
+//         )
+//     },
+//     {
+//         path: PATHS.SIGNUP,
+//         element: (
+//             <SignUp />
+//         )
+//     }
+// ]
+
+
+// const routes = [
+//     ...adminPages,
+//     ...userPages,
+//     ...guestPages,
+//     {
+//         path: PATHS.ERRORS.NOT_FOUND,
+//         element: <h1>PAGE NOT FOUND Error 404</h1>
+//     },
+//     {
+//         path: '*',
+//         element: <Navigate to={PATHS.ERRORS.NOT_FOUND} replace={true} />
+//     },
+// ]
+
+
