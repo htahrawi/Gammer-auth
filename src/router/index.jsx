@@ -4,7 +4,6 @@ import { routes } from './routes';
 
 const Router = () => {
   const router = useRoutes(routes);
-
   return router;
 };
 

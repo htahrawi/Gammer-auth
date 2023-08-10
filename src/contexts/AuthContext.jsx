@@ -1,15 +1,14 @@
-import React, { createContext, useContext, useState } from 'react'
-import { ROLES } from '../constants/roles';
-
+import React, { createContext, useContext } from 'react'
+import {useAuth} from '../hooks/useAuth'
 const AuthContext = createContext(null);
 export const useAuthContext = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
-  const [role, setRole] = useState(ROLES.GUEST);
-  const [user, setUser] = useState(null);
 
+  const data = useAuth();
+  
   return (
-    <AuthContext.Provider value={{ role, setRole, user, setUser }}>
+    <AuthContext.Provider value={data}>
       { children }
     </AuthContext.Provider>
   )

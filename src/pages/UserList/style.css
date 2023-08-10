@@ -4,13 +4,19 @@
 }
 
 .userList {
-
     margin-left: 3%;
     margin-top: 5%;
 }
+.top-title{     
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    width: 100%
+}
 
 .userList h3 {
-    display: flex;
+    display: inline-flex;
+    /* flex: 2; */
     align-items: center;
     justify-content: space-between;
     width: 30%;
@@ -18,7 +24,9 @@
     padding: 0 0 2rem;
     padding-left: 9rem;
 }
-
+.control-container{
+    width: 30%;
+}
 .Back {
     font-size: 1.3rem;
     font-weight: 500;
@@ -36,6 +44,7 @@
 
 .users_Table {
     margin: 0 auto;
+    margin-bottom: 1rem;
     width: 80%;
     background-color: rgb(255, 252, 246);
     border-collapse: collapse;
@@ -71,4 +80,30 @@ th {
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+.control-container{
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+    
+}
+.control-container button {
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.control-container button[name="prev"] {
+    background-color: aquamarine;
+    color: black;
+    font-weight: bold;
+    font-size: larger;    
+}
+.control-container button[name="next"] {
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+    font-size: larger;    
 }

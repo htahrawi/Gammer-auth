@@ -1,5 +1,10 @@
-.SectionTitle{
+.SectionTitle_light{
     font-size: 2rem;
     margin: 2px;
     color: #000000;
+}
+.SectionTitle_dark{
+    font-size: 2rem;
+    margin: 2px;
+    color: #fff;
 }

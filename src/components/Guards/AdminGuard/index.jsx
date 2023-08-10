@@ -1,11 +1,12 @@
 import React from 'react'
-import { ROLES } from '../../../Constants';
 import { Navigate, Outlet } from 'react-router-dom';
-import { PATHS } from '../../router/paths';
-import { useAuthContext } from '../../../Context/AuthContext';
+import { PATHS } from '../../../router/paths';
+import { ROLES } from '../../../constants/roles';
+import { useAuthContext } from '../../../contexts/AuthContext';
 
 const AdminGuard = () => {
-  const { role } = useAuthContext();
+  // const { role } = useAuthContext();
+  const  role  = "ADMIN";
   if(role === ROLES.ADMIN) return <Outlet />
   if(role === ROLES.USER) return <Navigate to={PATHS.HOME } replace={true} />
     return <Navigate to={PATHS.LOGIN} replace={true} />

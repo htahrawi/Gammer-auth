@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import Container from "../../components/Container";
 import Input from "../../components/Inputs";
@@ -8,13 +8,22 @@ import Button from "../../components/Button";
 import BoxWithBgImg from "../../components/BoxWithBgImg";
 import TestPass from "../../components/TestPassword";
 import { H2, Body } from "../../components/Typography";
+import { useAuthContext } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { PATHS } from "../../router/paths";
 
 const SignUp = ({strength}) => {
+  const navigate = useNavigate();
   const [strengthLevel, setStrengthLevel] = useState("");
-
+  const {signup } = useAuthContext();
+  const [formData, setFormData] = useState({
+    name:"",
+    email: "",
+    password : ""
+  })
   // password complicaty
   const changeStrengthLevel = (password) => {
-    if (password != "") {
+    if (password !== "") {
       const hasUpperCase = /[A-Z]/.test(password);
       const hasLowerCase = /[a-z]/.test(password);
       const hasNumber = /\d/.test(password);
@@ -43,6 +52,23 @@ const SignUp = ({strength}) => {
   };
   // end
 
+  // Inputs handler  Start
+  const nameHandler = (e) => {
+    e.preventDefault();
+    setFormData(preState => ({ ...preState, 'name': e.target.value }))
+  }
+  const emailHandler = (e) => {
+    e.preventDefault();
+    setFormData(preState => ({ ...preState, 'email': e.target.value }))
+  }
+  const passwordHandler = (e) => {
+    e.preventDefault();
+    setFormData(preState => ({ ...preState, 'password': e.target.value }))
+  }
+  // Inputs handler End
+
+
+
   const handleDefault = (el) => {
     el.preventDefault();
     let Name = document.getElementById("name");
@@ -68,7 +94,7 @@ const SignUp = ({strength}) => {
     if (!checkBox.checked) {
       errorMessage += "agree is required. ";
     }
-    if (errorMessage != "") {
+    if (errorMessage !== "") {
       alert(errorMessage);
     }
     // end
@@ -87,15 +113,16 @@ const SignUp = ({strength}) => {
     // end
     if (
       (emailRegex.test(Email.value) &&
-        errorMessage == "" &&
-        password.value == password2.value &&
-        strengthLevel == "strong") ||
-      strengthLevel == "medium"
+        errorMessage === "" &&
+        password.value === password2.value &&
+        strengthLevel === "strong") ||
+      strengthLevel === "medium"
     ) {
-      alert("passed successfully! , data has send to the api ");
+      // alert("passed successfully! , data has send to the api ");
+      console.log(formData);
+      signup(formData)
+      navigate(PATHS.HOME)
     }
-
-    // finally let ajax or axios send the data for the server or the api
   };
 
   return (
@@ -147,6 +174,7 @@ const SignUp = ({strength}) => {
             style={{ margin: "5px", cursor: "pointer" }}
           />{" "}
           Back
+          Lin
         </button>
         <Container>
           <H2 text="Register Individual Account!" />
@@ -158,13 +186,15 @@ const SignUp = ({strength}) => {
               id="name"
               type="text"
               placeholder="Enter your name"
-            />
+              onChange={nameHandler}
+              />
             <Input
               label="Email address*"
               id="sign_email"
               type="email"
               placeholder="Enter email address"
-            />
+              onChange={emailHandler}
+              />
             <Input
               label="Create password*"
               id="sign_password"
@@ -179,6 +209,7 @@ const SignUp = ({strength}) => {
               id="password2"
               type="password"
               placeholder="Repeat password"
+              onChange={passwordHandler}
             />
             <div className="checkbox_container">
               <input type="checkbox" id="agree" name="agree" />

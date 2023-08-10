@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '../../components/Container';
 import Input from '../../components/Inputs';
 import { H1, Body } from '../../components/Typography';
@@ -8,13 +8,36 @@ import Button from '../../components/Button';
 import './style.css';
 import ICONS from '../../constants/icons';
 import LogoGammer from '../../components/Logo';
-const  Login = ({ handleLoginPage }) => {
-   
+import { PATHS } from '../../router/paths';
+import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../contexts/AuthContext';
+const Login = () => {
 
-    const handleRegisterClick = () => {
-        handleLoginPage();
-    };
-
+    const navigate = useNavigate();
+    const { login, isLoading } = useAuthContext();
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: ''
+    })
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        login(formData)
+        navigate(PATHS.HOME, {replace: true})
+    }
+    // const handleInputChange = ({ target: { value, name } }) => {
+    //     console.log(name);
+    //     console.log(value);
+    //     setFormData((prev => ({ ...prev, [name]: value })))
+    // }
+    const emailHandler = (e) => {
+        e.preventDefault();
+        setFormData(preState => ({ ...preState, 'email': e.target.value }))
+    }
+    const passwordHandler = (e) => {
+        e.preventDefault();
+        setFormData(preState => ({ ...preState, 'password': e.target.value }))
+    }
     return (
         <div>
             <main className='login_page'>
@@ -54,26 +77,29 @@ const  Login = ({ handleLoginPage }) => {
                             ))}
                         </div>
                         <Or />
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <Input
                                 label='Enter Your Email'
                                 type='email'
                                 id='email'
                                 placeholder='Write your email'
+                                onChange={emailHandler}
                             />
                             <Input
                                 label='Enter your password'
                                 type='password'
                                 id='password'
                                 placeholder='•••••••••'
+                                onChange={passwordHandler}
                             />
                             <Button
-                                text='Login'
+                                text={`${isLoading ? 'Looooading' : 'login'}`}
                                 className='btn btn-primary mt '
                             />
                             <p className='create_account'>
                                 Don’t have an account?{' '}
-                                <span onClick={handleRegisterClick}>Register</span>
+                                {/* <span onClick={handleRegisterClick}>Register</span> */}
+                                <span onClick={() => { navigate(PATHS.SIGNUP) }}>Register</span>
                             </p>
                         </form>
                     </Container>

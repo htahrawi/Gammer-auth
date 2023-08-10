@@ -1,9 +1,11 @@
 import React from "react";
 
 import "./style.css";
+import { useThemeContext } from "../../contexts/ThemeContext";
 
 const SectionTitle = ({title}) =>{
-    return <h4 className="SectionTitle">{title}</h4>;
+    const {theme} = useThemeContext();
+    return <h4 className={`SectionTitle_${theme}`}>{title}</h4>;
 }
 
 export default SectionTitle

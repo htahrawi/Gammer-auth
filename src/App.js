@@ -1,23 +1,14 @@
 import MainLayout from "./components/MainLayout";
-import HomePage from "./pages/HomePage";
 import "./index.css";
+import Router from "./router";
 
 const App = () => {
   return (
     <div className="App">
+      
       <MainLayout>
-        <HomePage />
+        <Router />
       </MainLayout>
-      {/* <MainLayout> */}
-      {/* <HomePage />   */}
-      {/* <Login /> */}
-      {/* <SignUp /> */}
-      {/* <HomePage /> */}
-      {/* <Profile /> */}
-      {/* <UserDetails /> */}
-      {/* <UserList /> */}
-      {/* <SideBar /> */}
-      {/* </MainLayout> */}
     </div>
   );
 };

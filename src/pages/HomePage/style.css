@@ -1,11 +1,19 @@
-.home {
+.home_light{
     display: grid;
     grid-template-columns: 5.5rem 1fr;
     grid-template-areas: sidbar main;
     height: auto;
     width: auto;
     background-color: #f8f8f8;
-  }
+}
+.home_dark{
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    grid-template-areas: sidbar main;
+    height: auto;
+    width: auto;
+    background-color: #222222;
+}
   .main {
     grid-column-start: 2;
     display: grid;

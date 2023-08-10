@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // import axios from "axios";
 // import { API_URL } from "./../../config/api";
@@ -10,6 +10,9 @@ import Avatar from "../../assets/Avatar.png";
 import "./style.css";
 import User from "../../components/User";
 import SideBar from "../../components/SideBar";
+import axios from "axios";
+import { AUTH_API } from '../../config/api'
+import { AUTH_API_PATHS } from "../../constants/auth";
 
 const Profile = () => {
   // state = {
@@ -24,25 +27,26 @@ const Profile = () => {
     admin: "",
     isLoading: true,
   });
-  // async componentDidMount() {
-  //   const token = localStorage.getItem("token");
-  //   const res = await axios.get(`${API_URL}/users/profile`, {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   });
-
-  //   this.setState({
-  //     userName: res.data.name,
-  //     email: res.data.email,
-  //     admin: res.data.isAdmin,
-  //     isLoading: false,
-  //   });
-  // }
-
+  useEffect(() => {
+    const token = localStorage?.getItem('token')
+    const getProfileInfo = async () => {
+      try {
+        const res = await axios.get(AUTH_API + AUTH_API_PATHS.PROFILE, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        setInfo(res.data)
+        console.log(res.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    getProfileInfo();
+  }, [])
   return (
     <div className="home">
-      <SideBar />
+      {/* <SideBar /> */}
       <main className="usersMain">
         <User />
         <Link to="/" className="Back">
@@ -53,13 +57,13 @@ const Profile = () => {
         </Link>
         <div className="account">
           <img src={Avatar} alt="profile" />
-          <h1>{info.userName}'s Profile</h1>
+          <h1>{info.name}'s Profile</h1>
           {info.isLoading ? (
             "Loading..."
           ) : (
             <div className="profile_info">
               <p>Name:</p>
-              <p className="user_info">{info.userName}</p>
+              <p className="user_info">{info.name}</p>
               <p>Email:</p>
               <p className="user_info">{info.email}</p>
             </div>

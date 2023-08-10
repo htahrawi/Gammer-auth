@@ -21,10 +21,21 @@
     width: 50px;
 }
 .info{
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding-right: 20px;
     text-align: end;
     font-size: 5px ; 
+    width: 100%;
+    height: 100px ;
+}
+.light_mode{
+    color: #000;
+}
+.dark_mode{
+    color: #ffffff;
 }
 .icon{
     font-size: 2.3rem;
