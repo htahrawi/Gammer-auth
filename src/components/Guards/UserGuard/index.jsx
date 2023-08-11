@@ -5,7 +5,8 @@ import { PATHS } from '../../../router/paths';
 import { useAuthContext } from '../../../contexts/AuthContext';
 
 const UserGuard = () => {
-  const { role } = useAuthContext();
+  // const { role } = useAuthContext();
+  const role = "ADMIN";
   if (role === ROLES.USER) return <Outlet />;
   return <Navigate to={PATHS.HOME} replace={true} />;
 }

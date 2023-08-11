@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import AdminGuard from "../components/Guards/AdminGuard";
-import GuestGuards from "../components/Guards/GuestGuards";
+// import GuestGuards from "../components/Guards/GuestGuards";
 import UserGuard from "../components/Guards/UserGuard";
 import HomePage from "../pages/HomePage";
 import Login from "../pages/Login";
@@ -8,7 +8,7 @@ import Profile from "../pages/Profile";
 import SignUp from "../pages/SignUp";
 import UserList from "../pages/UserList";
 import { PATHS } from "./paths";
-import MainLayout from '../components/MainLayout'
+// import MainLayout from '../components/MainLayout'
 
 // Roles:
 // - guest: can view only(login, signup)
@@ -30,7 +30,7 @@ const adminPages = [
                 element: <Profile />
             },
             {
-                path: PATHS.ADMIN.USERS,
+                path: PATHS.USERS,
                 element: <UserList />
             },
         ]
